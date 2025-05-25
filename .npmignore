@@ -1,1 +1,7 @@
-/demo
+demo
+node_modules
+src
+tsconfig.json
+package-lock.json
+.git
+.gitignore
