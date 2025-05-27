@@ -1,0 +1,373 @@
+mozaic-ui - Complete Project Structure
+Generated on: 5/27/2025, 10:34:37 PM
+Total files: 15
+================================================================================
+
+FOLDER STRUCTURE:
+================================================================================
+mozaic-ui
+├── .gitignore
+├── .npmignore
+├── README.md
+├── package-lock.json
+├── package.json
+├── rollup.config.mjs
+├── src/
+│   ├── components/
+│   │   ├── Button/
+│   │   │   ├── Button.module.css
+│   │   │   ├── Button.stories.tsx
+│   │   │   ├── Button.test.tsx
+│   │   │   ├── Button.tsx
+│   │   │   ├── Button.types.ts
+│   │   │   └── index.ts
+│   │   └── index.ts
+│   ├── global.d.ts
+│   ├── index.ts
+│   └── utils/
+│       └── cn.ts
+└── tsconfig.json
+
+
+FILE CONTENTS:
+================================================================================
+
+
+========================================
+FILE: .npmignore
+========================================
+src/
+demo/
+node_modules/
+rollup.config.js
+tsconfig.json
+.storybook/
+*.log
+*.test.*
+*.spec.*
+*.mdx
+.vscode/
+.env
+*.env
+*.lock
+
+========================================
+FILE: README.md
+========================================
+# mozaic-ui
+
+- A minimal UI component library for building modern web interfaces.
+- This is an early-stage library and is continuously evolving.
+- Contribution and creativity are welcome 👍
+
+## Features
+- Simple and lightweight
+- Easy to style and extend
+- Built with TypeScript
+- Ready-to-use components
+
+## 📦 Installation
+```bash
+npm install mozaic-ui
+# or
+yarn add mozaic-ui
+```
+
+## Usage 
+```
+import { Button } from 'mozaic-ui';
+
+function App() {
+  return (
+    <Button onClick={() => alert('Clicked!')}>Click Me</Button>
+    <Button variant="plain" onClick={() => alert('Clicked!')}>Click Me</Button>
+    <Button variant="solid" onClick={() => alert('Clicked!')}>Click Me</Button>
+    <Button variant="outline" onClick={() => alert('Clicked!')}>Click Me</Button>
+  );
+}
+
+export default App;
+```
+
+## Components
+- Button
+
+
+
+========================================
+FILE: package.json
+========================================
+{
+  "name": "mozaic-ui",
+  "version": "0.1.7",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "library",
+    "mozaic"
+  ],
+  "author": "Pranav Patil",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "peerDependencies": {
+  "react": "^18.0.0",
+  "react-dom": "^18.0.0"
+},
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@storybook/react": "^8.6.14",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "rollup": "^4.41.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "typescript": "^5.8.3"
+  }
+}
+
+
+========================================
+FILE: rollup.config.mjs
+========================================
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import postcss from 'rollup-plugin-postcss';
+
+export default {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: 'dist/index.esm.js',
+      format: 'esm',
+      sourcemap: true,
+    },
+    {
+      file: 'dist/index.cjs.js',
+      format: 'cjs',
+      sourcemap: true,
+    },
+  ],
+  plugins: [
+    peerDepsExternal(),  
+    resolve(),           
+    commonjs(),          
+    postcss({
+      modules: false,       // Enable CSS modules
+      inject: true,  // Extract CSS into dist/styles.css
+      minimize: true,      // Minify CSS
+      sourceMap: true,     
+    }),
+    typescript({
+      tsconfig: './tsconfig.json',
+      sourceMap: true,
+      declaration: true,       
+      declarationDir: 'dist',  
+      rootDir: 'src',          
+    }),
+  ],
+  external: ['react', 'react-dom'],  
+};
+
+
+========================================
+FILE: src\components\Button\Button.module.css
+========================================
+.button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#plain {
+    background-color: transparent;
+    color: rgb(53, 53, 255);
+    border: none;
+}
+
+#plain:hover {
+    background-color: rgb(201, 201, 238);
+}
+
+#solid {
+    background-color: #028dff;
+    color: white;
+    border: none;
+}
+
+#outline {
+    background-color: transparent;
+    color: #028dff;
+    border: 1px solid #028dff;
+
+}
+
+#outline:hover {
+    background-color: #028dff33;
+}
+
+========================================
+FILE: src\components\Button\Button.stories.tsx
+========================================
+import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from './Button';
+
+const meta: Meta<typeof Button> = {
+  title: 'Components/Button',
+  component: Button,
+  tags: ['autodocs'],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+  args: {
+    children: 'Plain',
+    variant: 'plain',
+  },
+};
+
+export const Success: Story = {
+  args: {
+    children: 'Solid',
+    variant: 'solid',
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    children: 'Outline',
+    variant: 'outline',
+  },
+};
+
+
+========================================
+FILE: src\components\Button\Button.test.tsx
+========================================
+
+
+========================================
+FILE: src\components\Button\Button.tsx
+========================================
+import React from "react";
+import styles from "./Button.module.css";
+import { ButtonProps } from "./Button.types";
+import { cn } from "../../utils/cn";
+
+export const Button: React.FC<ButtonProps> = ({
+  variant = "primary",
+  className,
+  children,
+  ...rest
+}) => {
+  return (
+    <button
+      className={cn(styles.button, styles[variant], className)}
+      {...rest}
+    >
+      {children}
+    </button>
+  );
+}
+Button.displayName = "Button";
+
+========================================
+FILE: src\components\Button\Button.types.ts
+========================================
+import React from 'react';
+
+export type ButtonVariant = 'plain' | 'solid' | 'outline';
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    variant?: ButtonVariant;
+}
+
+
+
+========================================
+FILE: src\components\Button\index.ts
+========================================
+export { Button } from './Button';
+export type { ButtonProps } from './Button.types';
+
+
+========================================
+FILE: src\components\index.ts
+========================================
+export * from './Button';
+
+========================================
+FILE: src\global.d.ts
+========================================
+declare module '*.module.css' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
+
+========================================
+FILE: src\index.ts
+========================================
+export * from './components';
+
+========================================
+FILE: src\utils\cn.ts
+========================================
+export function cn(...classes: (string | false | undefined | null)[]) {
+  return classes.filter(Boolean).join(' ');
+}
+
+========================================
+FILE: tsconfig.json
+========================================
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "ESNext",
+    "target": "ESNext",
+    "declaration": true,
+    "declarationDir": "./dist",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.ts",
+    "**/*.stories.tsx"
+  ]
+}
+

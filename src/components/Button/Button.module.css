@@ -7,29 +7,29 @@
     transition: background-color 0.2s ease;
 }
 
-#plain {
+.plain {
     background-color: transparent;
     color: rgb(53, 53, 255);
     border: none;
 }
 
-#plain:hover {
+.plain:hover {
     background-color: rgb(201, 201, 238);
 }
 
-#solid {
+.solid {
     background-color: #028dff;
     color: white;
     border: none;
 }
 
-#outline {
+.outline {
     background-color: transparent;
     color: #028dff;
     border: 1px solid #028dff;
 
 }
 
-#outline:hover {
+.outline:hover {
     background-color: #028dff33;
 }

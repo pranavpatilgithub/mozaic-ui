@@ -4,7 +4,7 @@ import { ButtonProps } from "./Button.types";
 import { cn } from "../../utils/cn";
 
 export const Button: React.FC<ButtonProps> = ({
-  variant = "primary",
+  variant = "solid",
   className,
   children,
   ...rest

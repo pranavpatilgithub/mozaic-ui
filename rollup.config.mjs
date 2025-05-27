@@ -23,7 +23,7 @@ export default {
     resolve(),           
     commonjs(),          
     postcss({
-      modules: false,       // Enable CSS modules
+      modules: true,       // Enable CSS modules
       inject: true,  // Extract CSS into dist/styles.css
       minimize: true,      // Minify CSS
       sourceMap: true,     
