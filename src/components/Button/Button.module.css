@@ -7,47 +7,29 @@
     transition: background-color 0.2s ease;
 }
 
-.primary {
-    background-color: #007bff;
-    color: white;
-}
-
-.secondary {
-    background-color: #6c757d;
-    color: white;
-}
-
-.success{
-    background: transparent;
-    color: #10b981;
-    border: 2px solid #10b981;
-    padding: 10px 22px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.success:hover {
-    background: #10b981;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.25);
-}
-
-.danger {
-    background-color: #dc3545;
-    color: white;
-}
-
-.warning {
+#plain {
     background-color: transparent;
-    border: 1px solid #ccc;
-    color: #333;
+    color: rgb(53, 53, 255);
+    border: none;
 }
 
-.info {
+#plain:hover {
+    background-color: rgb(201, 201, 238);
+}
+
+#solid {
+    background-color: #028dff;
+    color: white;
+    border: none;
+}
+
+#outline {
     background-color: transparent;
-    color: #007bff;
+    color: #028dff;
+    border: 1px solid #028dff;
+
+}
+
+#outline:hover {
+    background-color: #028dff33;
 }

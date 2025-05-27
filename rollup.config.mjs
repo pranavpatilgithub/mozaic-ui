@@ -5,36 +5,36 @@ import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 
 export default {
-  input: 'src/index.ts',  // entry point of your library
+  input: 'src/index.ts',
   output: [
     {
-      file: 'dist/index.esm.js',  // ES module output for bundlers like webpack, vite, etc
+      file: 'dist/index.esm.js',
       format: 'esm',
       sourcemap: true,
     },
     {
-      file: 'dist/index.cjs.js',  // CommonJS output for Node or older bundlers
+      file: 'dist/index.cjs.js',
       format: 'cjs',
       sourcemap: true,
     },
   ],
   plugins: [
-    peerDepsExternal(),  // mark peer dependencies (like react) as external, don't bundle them
-    resolve(),           // resolve node_modules packages
-    commonjs(),          // convert CommonJS to ES modules
+    peerDepsExternal(),  
+    resolve(),           
+    commonjs(),          
     postcss({
-      modules: true,     // enable CSS modules
-      inject: true,      // inject CSS into JS bundle at runtime (important!)
-      minimize: true,    // minimize CSS
-      sourceMap: true,   // include source maps for easier debugging
+      modules: false,       // Enable CSS modules
+      inject: true,  // Extract CSS into dist/styles.css
+      minimize: true,      // Minify CSS
+      sourceMap: true,     
     }),
     typescript({
       tsconfig: './tsconfig.json',
       sourceMap: true,
-      declaration: true,       // generate .d.ts files for your types
-      declarationDir: 'dist',  // put .d.ts files into dist folder
-      rootDir: 'src',          // source folder
+      declaration: true,       
+      declarationDir: 'dist',  
+      rootDir: 'src',          
     }),
   ],
-  external: ['react', 'react-dom'], // mark react and react-dom as external dependencies
+  external: ['react', 'react-dom'],  
 };
