@@ -1,17 +1,18 @@
-# Mozaic UI 🌟
+# Mozaic UI
 
-**Mozaic UI** is a minimal and extensible UI component library for React. It provides reusable, accessible, and customizable components, perfect for modern web interfaces. Built with scalability and developer experience in mind.
-**LICENSE** : This project is licensed under the MIT License.
+Mozaic UI is a minimal and extensible UI component library for React. It provides reusable, accessible, and customizable components, perfect for modern web interfaces. Built with scalability and developer experience in mind.
+
+
 ---
 
 ## Features
 
-✅ **Lightweight & Modular**  
-✅ **Customizable Variants, Sizes, Colors, and Radius**  
-✅ **TypeScript Support**  
-✅ **Modern CSS Techniques**  
-✅ **Design Tokens and Semantic Colors**  
-✅ **Ready for Theming & Extensions**
+- Lightweight & Modular
+- Customizable Variants, Sizes, Colors, and Radius  
+- TypeScript Support 
+- Modern CSS Techniques
+- Design Tokens and Semantic Colors  
+- Ready for Theming & Extensions
 
 ---
 
