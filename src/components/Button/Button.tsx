@@ -5,13 +5,16 @@ import { cn } from "../../utils/cn";
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "solid",
+  size = '',
+  color = '',
+  radius = '',
   className,
   children,
   ...rest
 }) => {
   return (
     <button
-      className={cn(styles.button, styles[variant], className)}
+      className={cn(styles.button, styles[variant], styles[size],styles[color],styles[radius], className)}
       {...rest}
     >
       {children}
