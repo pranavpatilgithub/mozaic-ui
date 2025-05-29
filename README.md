@@ -46,10 +46,15 @@ export default App;
 ```
 
 ## Components
-- Button : A versatile and customizable button component with support for variants, sizes, colors, and border radius.
-- Props
-variant ```	'solid' | 'outline' | 'plain' ```
-size  ```	'xs' | 'sm' | 'lg' | 'xl' ```
-color  ```	'success' | 'danger' | 'warning' | 'success-outline' | 'danger-outline' | 'warning-outline' ```
-radius ```	'rounded-none' | 'rounded-sm' | 'rounded-lg' | 'rounded-full' ```
+
+-  `Button`
+    A versatile and customizable button component with support for variants, sizes, colors, and border radius.
+####  Props
+
+| Prop       | Type                                                                                      |
+|------------|-------------------------------------------------------------------------------------------|
+| `variant`  | `'solid'` \| `'outline'` \| `'plain'`                                                    | 
+| `size`     | `'xs'` \| `'sm'` \| `'lg'` \| `'xl'`                                                     | 
+| `color`    | `'success'` \| `'danger'` \| `'warning'` \| `'success-outline'` \| `'danger-outline'` \| `'warning-outline'` |
+| `radius`   | `'rounded-none'` \| `'rounded-sm'` \| `'rounded-lg'` \| `'rounded-full'`                 | 
 
